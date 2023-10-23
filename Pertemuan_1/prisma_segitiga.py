@@ -1,9 +1,13 @@
 # Menghitung volume prisma segitiga
-panjang_alas = float(input("Masukkan Panjang Alas: "))  # Panjang sisi alas segitiga
-tinggi = float(input("Masukkan Tinggi: "))  # Tinggi prisma
-volume = (panjang_alas * tinggi) / 2
-print("Volume prisma segitiga adalah:", volume)
+def volume_prisma_segitiga(alas, tinggi_segitiga, tinggi_prisma):
+    luas_alas = 0.5 * alas * tinggi_segitiga
+    volume = luas_alas * tinggi_prisma
+    return volume
 
-# Menghitung luas permukaan prisma segitiga
-luas_permukaan = (2 * panjang_alas) + (3 * tinggi)
-print("Luas permukaan prisma segitiga adalah:", luas_permukaan)
+# Contoh penggunaan fungsi
+alas_segitiga = float(input("Masukkan Alas Segitiga: "))  # Panjang alas segitiga
+tinggi_segitiga = float(input("Masukkan Tinggi Segitiga: "))  # Tinggi segitiga
+tinggi_prisma = float(input("Masukkan Tinggi PrismaSegitiga: "))  # Tinggi prisma
+
+hasil_volume = volume_prisma_segitiga(alas_segitiga, tinggi_segitiga, tinggi_prisma)
+print("Volume prisma segitiga adalah:", hasil_volume)
