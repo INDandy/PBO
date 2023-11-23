@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Kalkulator Waktu Download</title>
+</head>
+<body>
+    <h1>Kalkulator Waktu Download</h1>
+    <form method="POST" action="/">
+        <label for="file_size">Ukuran File (GB):</label>
+        <input type="number"  name="file_size" required>
+        
+        <label for="download_speed">Kecepatan Download:</label>
+        <input type="number"  name="download_speed" required>
+        
+        <label for="unit">Bandwith:</label>
+        <select name="unit" required>
+            <option value="KB">KB/s</option>
+            <option value="MB">MB/s</option>
+            <option value="GB">GB/s</option>
+            <option value="TB">TB/s</option>
+        </select>
+        
+        <button type="submit">Hitung</button>
+    </form>
+    <a href="{{'about'}}" button type="button"><button id="about-button">Penjelasan</button></a>
+    
+    {% if file_size and download_speed %}
+    <h2>Waktu Download:</h2>
+    <p>Ukuran File: {{ file_size }} GB</p>
+    <p>Kecepatan Download: {{ download_speed }} {{ unit }}/s</p>
+    <p>Waktu: {{ hours }} jam, {{ minutes }} menit, {{ seconds }} detik</p>
+    {% endif %}
+</body>
+</html>
